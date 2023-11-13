@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Lumanosimo&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: "Lumanosimo", cursive;
+}
+body {
+  background: linear-gradient(45deg, #e9ab27, #6355e4, #c07eda);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  height: 100svh;
+  user-select: none;
+}
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Keyboard control / scores */
+.container .control,
+.container .scores {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 300px;
+  background-color: rgba(30, 37, 4, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+.container .control .content,
+.container .scores .content {
+  position: absolute;
+  width: 100%;
+  padding: 0 15px;
+  text-align: center;
+}
+.container .control .content h1,
+.container .scores .content h1 {
+  text-transform: uppercase;
+  font-size: 1.6em;
+  font-weight: 700;
+}
+.container .control .content p {
+  font-size: 1.2em;
+  line-height: 2;
+  color: rgb(24, 23, 23);
+}
+
+/* Game field */
+.container .playground {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .playground .grid {
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+  grid-template-rows: repeat(20, auto);
+  padding: 0.9vh;
+  gap: 0.4vh;
+  border-radius: 0.6vh;
+  background-color: rgba(30, 37, 4, 0.5);
+}
+.container .playground .grid div {
+  --cellSize: min(4.5vh, 7.5vw);
+  height: var(--cellSize);
+  width: var(--cellSize);
+  border-radius: 0.3vh;
+  background-color: rgba(216, 214, 108, 0.2);
+}
+
+/* Figures */
+.container .playground .grid div.projection {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.container .playground .grid div.T {
+  background-color: #ba51d4;
+}
+.container .playground .grid div.S {
+  background-color: #7be17b;
+}
+.container .playground .grid div.Z {
+  background-color: #f34343;
+}
+.container .playground .grid div.O {
+  background-color: #fff07c;
+}
+.container .playground .grid div.J {
+  background-color: #429ee9;
+}
+.container .playground .grid div.L {
+  background-color: #d8a434;
+}
+.container .playground .grid div.I {
+  background-color: rgb(107, 236, 236);
+}
+.container .playground .grid div.projection,
+.container .playground .grid div.I,
+.container .playground .grid div.L,
+.container .playground .grid div.J,
+.container .playground .grid div.O,
+.container .playground .grid div.Z,
+.container .playground .grid div.S,
+.container .playground .grid div.T {
+  box-shadow: inset 2px 2px rgba(255, 255, 255, 0.3),
+    inset -2px -2px 2px rgba(0, 0, 0, 0.3);
+}
+.container .playground .grid div.hide {
+  animation: hide 1s;
+}
+@keyframes hide {
+  0% {
+    transform: scale(0.8) rotate(45deg);
+  }
+  45% {
+    transform: scale(0.5) rotate(-45deg);
+  }
+  90% {
+    transform: scale(0.1) rotate(0);
+  }
+}
+.container .scores .content #score {
+  font-size: 3em;
+}
